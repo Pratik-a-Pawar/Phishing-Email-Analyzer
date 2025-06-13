@@ -1,0 +1,549 @@
+Delivered-To: pawarpratika304@gmail.com
+Received: by 2002:a05:6a10:e10b:b0:5ec:cff6:9d77 with SMTP id a11csp6381334pxw;
+        Sat, 17 May 2025 00:12:37 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHO8jFLxGnsH/7UFBV8VIqKik5DQFcxwx3wXbxeRRET2c4O7vc1EmDtOR+eOcrk1aBxImiW
+X-Received: by 2002:a17:903:3a86:b0:21f:6dcf:fd2b with SMTP id d9443c01a7336-231b3937fa0mr132153975ad.1.1747465956852;
+        Sat, 17 May 2025 00:12:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1747465956; cv=none;
+        d=google.com; s=arc-20240605;
+        b=QXnRWlQX08y8tRYipVYx5VieY4Khmbt1QHOiV0L+tNxGV31RZV9+rpDKKKZaD9tDPh
+         4Dgs8GtYYfSnD+l4rzNBCqTVZJsiwqPyGF3Q5Gu8yDb6pF3OtAHLAMqtx2+DRjsTR3xG
+         0aEarpz+pqaFGO96J9SQVDa5s8yJk3WRCd5eelgaJwE+nLasCDtcrvO/Etyqo0hnPEwG
+         4Pb5V4+8DqsR1x+ov4ocn+xcQbkmQlwEjdPdebIdfBjhCYJUKmFLeS3jCDVb/V1WQGAj
+         AXcTJtoqn0nW0vgN35O72j53x0tiiWbgAVhVgcu6oC6ArAPp/JnGU5x75eJtmghiGEG4
+         sKLA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:subject:content-transfer-encoding:mime-version:date
+         :message-id:to:from:dkim-signature:dkim-signature;
+        bh=EJnqIIKxssrLyf9SELoanqCz//SZNj9zfFB8SbsHHW0=;
+        fh=GtYtDU+U83LwNwMd79h2D+9v3PlGbl58YGuNmEBc84g=;
+        b=AZIF4pa78Etr5A+Eb5/QbUZsLgamMmTF3d73KQubEdas2D2hzAzP7hROPjuIFGLbjo
+         h5pYaiFTC2FpubC+v3ccIrbzGYFdKILabiVwoFKUU2vrGdfS6My/mJbZ/ZsBbn33F1dk
+         n2VscWfAi9FcvVFrRawK8JkDWgjfOYDKQYRAXzSrWSgIjYaa+40MgTqKmLi6LQMotIsW
+         sta7CQ2ma+JCP7s+Vz5+oVnTaVdpcW7k5VFb3tUu65FEpSsRMrQmm9OQzphPmK7XBRG5
+         L8LvAmdvRVzGz8dtCCvIRNSGUoLSr7Ii68Y7k3NnoDHhx4u5mpelTbfUX2lzPbJF4kgr
+         lynA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@valueresearchonline.net header.s=wsyirf3zrevdflz3pkek5iezglmgohq7 header.b=Y0dW7f6e;
+       dkim=pass header.i=@amazonses.com header.s=gdwg2y3kokkkj5a55z2ilkup5wp5hhxx header.b="au9x/4rn";
+       spf=pass (google.com: domain of 01010196dd166cac-9b7ef287-75b8-4179-afc4-9b2b474e0341-000000@us-west-2.amazonses.com designates 54.240.57.99 as permitted sender) smtp.mailfrom=01010196dd166cac-9b7ef287-75b8-4179-afc4-9b2b474e0341-000000@us-west-2.amazonses.com
+Return-Path: <01010196dd166cac-9b7ef287-75b8-4179-afc4-9b2b474e0341-000000@us-west-2.amazonses.com>
+Received: from a57-99.smtp-out.us-west-2.amazonses.com (a57-99.smtp-out.us-west-2.amazonses.com. [54.240.57.99])
+        by mx.google.com with ESMTPS id d9443c01a7336-231d4ee0843si40521655ad.581.2025.05.17.00.12.36
+        for <pawarpratika304@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 17 May 2025 00:12:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 01010196dd166cac-9b7ef287-75b8-4179-afc4-9b2b474e0341-000000@us-west-2.amazonses.com designates 54.240.57.99 as permitted sender) client-ip=54.240.57.99;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@valueresearchonline.net header.s=wsyirf3zrevdflz3pkek5iezglmgohq7 header.b=Y0dW7f6e;
+       dkim=pass header.i=@amazonses.com header.s=gdwg2y3kokkkj5a55z2ilkup5wp5hhxx header.b="au9x/4rn";
+       spf=pass (google.com: domain of 01010196dd166cac-9b7ef287-75b8-4179-afc4-9b2b474e0341-000000@us-west-2.amazonses.com designates 54.240.57.99 as permitted sender) smtp.mailfrom=01010196dd166cac-9b7ef287-75b8-4179-afc4-9b2b474e0341-000000@us-west-2.amazonses.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=wsyirf3zrevdflz3pkek5iezglmgohq7; d=valueresearchonline.net;
+	t=1747465956;
+	h=From:Content-Type:To:Message-Id:Date:Mime-Version:Content-Transfer-Encoding:Subject;
+	bh=vvc5Q5vlNIwDq2A7Y6Ia+3XxyA9wJosOKUO2R6DY/iM=;
+	b=Y0dW7f6e9GUS8xfr7wnC8Y77VSZ0VTUDLmI0wn4yzEo7L3dnNQeqaxYJsM3CZryZ
+	RNuaBN+vmmqBtJqWuxirBz8kUmmXWIULqmfily5vOxm4HTTam17kr/90vMu1HRyPbvt
+	94dzMGq42Ix/WPjEdgd5d3EJsvftOJTLT6AO0wxkQzO1cgOxrrbBCYldK1qAwvAaOq5
+	BEdClTYoraHr/FSk7LCzuaE/3Y8Rt4SVl5KbVNUqxXjwURLeW+tiedepylehMILnR9E
+	COawP/j2X/4pwTaYxZYJ48Bgn6JdXZ/gY3e+jadSnrMgi6vhfWK02HkHY6WDLFgwdK1
+	ZHoMjG0AIA==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=gdwg2y3kokkkj5a55z2ilkup5wp5hhxx; d=amazonses.com; t=1747465956;
+	h=From:Content-Type:To:Message-Id:Date:Mime-Version:Content-Transfer-Encoding:Subject:Feedback-ID;
+	bh=vvc5Q5vlNIwDq2A7Y6Ia+3XxyA9wJosOKUO2R6DY/iM=;
+	b=au9x/4rn4hEeS10GZgQOlK70PWzSvKI6SS8ndFFirkf9TL3a0Kbn+M38jeODkZiH
+	MMtL+kAzUgU7w5x6VhkTtt+sJllqwBuLv1AWYw90fRQLbHpJGro1Unj6py8mNsaADDD
+	qk1L9/4X4rImHHoZdU0HCUjoCVfUHC/ALvrUk36k=
+From: Dhirendra Kumar <newsletters@valueresearchonline.net>
+X-Listmonk-Campaign: fdc3158b-c89b-461c-b8af-42a5d5cf38e7
+Content-Type: text/html; charset=UTF-8
+To: pawarpratika304@gmail.com
+Message-ID: <01010196dd166cac-9b7ef287-75b8-4179-afc4-9b2b474e0341-000000@us-west-2.amazonses.com>
+Date: Sat, 17 May 2025 07:12:36 +0000
+Mime-Version: 1.0
+X-Listmonk-Subscriber: e3f3ebcf-f2aa-45d0-985e-7680df74578b
+Content-Transfer-Encoding: quoted-printable
+Subject: Why certainty is overrated
+Feedback-ID: ::1.us-west-2.Fn+RkwShHE2YKqGc/4Xs2GcFvvNaAvXT2mUBasHaGvM=:AmazonSES
+X-SES-Outgoing: 2025.05.17-54.240.57.99
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=3D"utf-8">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width">
+    <title>Value Research Newsletters: editors 02-Jul-2024</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        table {
+            border-spacing: 0;
+        }
+
+        td {
+            padding: 0;
+        }
+        .para-text strong {
+            font-weight: 700;
+        }
+        @media (max-width:768px) {
+            .m-w-100 {
+                width: 100% !important;
+            }
+            .fs-12 {
+                font-size: 12px !important;
+                line-height: 14.4px !important;
+            }
+
+            .fs-18 {
+                font-size: 18px !important;
+                line-height: 21.6px !important;
+            }
+
+            .fs-26 {
+                font-size: 26px !important;
+                line-height: 31.2px !important;
+            }
+
+            .text-left {
+                text-align: left !important;
+            }
+
+            .mobile-view {
+                display: block;
+            }
+
+            .mobile-view td {
+                display: block;
+                width: 100% !important;
+                padding: 0 !important;
+            }
+
+            .mobile-view .story-image {
+                width: 100%;
+                border-radius: 10px !important;
+                margin-bottom: 12px;
+            }
+
+            .idea-image {
+                width: 50px !important;
+            }
+
+            .insight-text {
+                margin-top: 5px!important;
+            }
+
+            .insight-text .seperator {
+                display: none;
+            }
+
+            .insight-text span {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"60=
+0" class=3D"m-w-100"
+            style=3D"padding-bottom: 0px; border-collapse: separate;mso-tab=
+le-lspace: 0;mso-table-rspace: 0;-ms-text-size-adjust: 100%;-webkit-text-si=
+ze-adjust: 100%; border: 1px solid #DDDDDD;border-radius: 8px;">
+            <tbody>
+                <tr>
+                    <td>
+                        <table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0"
+                            style=3D"padding: 0 20px;width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <td colspan=3D"3">
+                                        <h2 class=3D"fs-26"
+                                            style=3D"font-family: 'Georgia'=
+,serif;font-size: 40px;font-style: italic;font-weight: 400;line-height: 48p=
+x;text-align: center;color: #000;margin: 20px 0 5px 0;">
+                                            Editor's Note</h2>
+                                        <p
+                                            style=3D"font-family: 'Arial',s=
+ans-serif;font-size: 14px;font-weight: 400;line-height: 140%;letter-spacing=
+: 0.2px;text-align: center;color: #444;margin: 0 0 20px 0;">Dhirendra Kumar=
+=E2=80=99s insights and timeless advice for investors</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style=3D"width: 50%;">
+                                        <hr style=3D"border:0; border-top: =
+1px solid #212427;width: 100%;">
+                                    </td>
+                                    <td style=3D"width: auto;">
+                                        <p
+                                            style=3D"font-family: Georgia;f=
+ont-size: 12px;font-weight: 400;line-height: 14.4px;white-space: nowrap;pad=
+ding: 0 20px;margin: 0">
+											17-May-2025</p>
+                                    </td>
+                                    <td style=3D"width: 50%;">
+                                        <hr style=3D"border:0; border-top: =
+1px solid #212427;width: 100%;">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0"
+                            style=3D"padding:0px 20px 0px 20px;width: 100%"=
+>
+                            <tbody>
+
+					=09
+							<tr>                          =20
+                                    <td>
+                                     <h3 style=3D"font-family: 'Georgia',se=
+rif;font-size: 16px;font-weight: 400;line-height: 140%;text-align: left;col=
+or: #444;margin: 15px 0 10px;">Dear Pratik Pawar,</h3>
+                                      <p style=3D"font-family: 'Georgia',se=
+rif;font-size: 16px;font-weight: 400;line-height: 140%;text-align: left;col=
+or: #444;margin: 0 0 10px;font-style: italic;">Every Saturday, I share my p=
+erspectives on a topic investors will find useful. This week, let=E2=80=99s=
+ consider why embracing uncertainty might be your best investment strategy.=
+</p>
+                                     =20
+                                      <h3 style=3D"font-family: 'Georgia',s=
+erif;font-size: 16px;font-weight: 400;line-height: 140%;text-align: left;co=
+lor: #444;margin: 0 0 10px;font-weight: bold;">Markets defy understanding</=
+h3>
+                                      <p style=3D"font-family: 'Georgia',se=
+rif;font-size: 16px;font-weight: 400;line-height: 140%;text-align: left;col=
+or: #444;margin: 0 0 10px;">During a lecture at Yale University, distinguis=
+hed physicist Ramamurti Shankar offered his students a remarkably honest ta=
+ke on quantum mechanics: "Richard Feynman, one of the big figures in physic=
+s, used to say, no one understands quantum mechanics." Then came his deligh=
+tful punchline: "Right now, I'm the only one who doesn't understand quantum=
+ mechanics. In about seven days, all of you will be unable to understand qu=
+antum mechanics. Then you can go back and spread your ignorance everywhere =
+else." You can watch it <a href=3D"https://www.youtube.com/shorts/Wzc0rCniH=
+ag">here</a>.</p>
+                                      <p style=3D"font-family: 'Georgia',se=
+rif;font-size: 16px;font-weight: 400;line-height: 140%;text-align: left;col=
+or: #444;margin: 0 0 10px;">This self-deprecating wisdom from a brilliant p=
+hysicist resonates deeply with investing. Like quantum mechanics, the finan=
+cial markets operate in ways that often defy intuition and straightforward =
+explanation.</p>
+									 <p style=3D"font-family: 'Georgia',serif;font-size: 16px;font-wei=
+ght: 400;line-height: 140%;text-align: left;color: #444;margin: 0 0 10px;">=
+<img src=3D"http://m1.valueresearchonline.in/asset/975:first-page-17-05-25j=
+pg" alt=3D"" style=3D"width: 100%;"></p>=20
+									 <p style=3D"font-family: 'Georgia',serif;font-size: 16px;font-wei=
+ght: 400;line-height: 140%;text-align: left;color: #444;margin: 0 0 10px;">=
+Scroll through financial news channels, and you'll encounter countless expe=
+rts who confidently explain market movements with absolute certainty. Even =
+now, in the midst of war, the market is on two different roller coasters si=
+multaneously. These explanations sound plausible until you notice how frequ=
+ently they contradict one another or get revised as new data emerges.</p>
+									 <p style=3D"font-family: 'Georgia',serif;font-size: 16px;font-wei=
+ght: 400;line-height: 140%;text-align: left;color: #444;margin: 0 0 10px;">=
+What if we approached investing with the same intellectual honesty as Profe=
+ssor Shankar approaches quantum physics? What if we acknowledged that marke=
+ts are complex adaptive systems influenced by millions of participants maki=
+ng decisions based on incomplete information, varying time horizons, and em=
+otional responses?</p>=20
+									 <p style=3D"font-family: 'Georgia',serif;font-size: 16px;font-wei=
+ght: 400;line-height: 140%;text-align: left;color: #444;margin: 0 0 10px;">=
+Let=E2=80=99s put aside the last few days' events, even though I do not agr=
+ee that these were a black swan.  A terror attack by Pakistan and a strong =
+response from India is at best a light grey swan=E2=80=93it=E2=80=99s alway=
+s on the cards.</p>
+									 <p style=3D"font-family: 'Georgia',serif;font-size: 16px;font-wei=
+ght: 400;line-height: 140%;text-align: left;color: #444;margin: 0 0 10px;">=
+Consider how often the financial industry's most confident predictions fall=
+ short. Remember the certainty that certain pandemic-era consumer behaviour=
+s would become permanent, only to see rapid reversals? These weren't mere o=
+utlier errors=E2=80=93they represent the fundamental challenge of forecasti=
+ng in complex systems. Yet the investment industry continues selling certai=
+nty. Fund managers promise outperformance through superior stock selection.=
+ Technical analysts identify patterns that supposedly predict future prices=
+. Economic forecasters project growth rates to decimal precision. And ordin=
+ary investors are expected to navigate this landscape with confidence.</p>
+									 <p style=3D"font-family: 'Georgia',serif;font-size: 16px;font-wei=
+ght: 400;line-height: 140%;text-align: left;color: #444;margin: 0 0 10px;">=
+A more honest approach would be to design investment strategies that acknow=
+ledge our inability to predict market movements consistently. Rather than a=
+ttempting to outsmart the market through constant activity, we might focus =
+on enduring principles: diversification across genuinely different asset cl=
+asses, minimising unnecessary costs, understanding our risk tolerance, and =
+avoiding concentration in areas we don't understand.</p>
+									 <p style=3D"font-family: 'Georgia',serif;font-size: 16px;font-wei=
+ght: 400;line-height: 140%;text-align: left;color: #444;margin: 0 0 10px;">=
+Some of history's most successful investors have embraced this philosophy o=
+f humility. They've succeeded not through perfect foresight, but by establi=
+shing robust processes, recognising their limitations, and being willing to=
+ change their minds when evidence contradicts their beliefs. They understan=
+d that protecting against permanent loss often matters more than capturing =
+every potential gain.</p>
+									 <p style=3D"font-family: 'Georgia',serif;font-size: 16px;font-wei=
+ght: 400;line-height: 140%;text-align: left;color: #444;margin: 0 0 10px;">=
+For most investors, this approach means developing an investment philosophy=
+ that doesn't depend on accurately forecasting next quarter's GDP growth or=
+ identifying which technology will dominate a decade from now. It means con=
+structing portfolios that weather various economic scenarios rather than be=
+tting everything on a single prediction.</p>
+									 <p style=3D"font-family: 'Georgia',serif;font-size: 16px;font-wei=
+ght: 400;line-height: 140%;text-align: left;color: #444;margin: 0 0 10px;">=
+This doesn't mean abandoning active decision-making entirely. It means appr=
+oaching those decisions with appropriate humility. When evaluating investme=
+nts, consider potential returns and what might go wrong. Ask yourself: "If =
+my thesis proves incorrect, how much could I lose?" Often, avoiding catastr=
+ophic losses proves more valuable than chasing outsized gains.</p>
+									 <p style=3D"font-family: 'Georgia',serif;font-size: 16px;font-wei=
+ght: 400;line-height: 140%;text-align: left;color: #444;margin: 0 0 10px;">=
+The financial industry rarely promotes this perspective because uncertainty=
+ doesn't sell well. Customers want confidence and precision, and financial =
+media need dramatic narratives and actionable advice to maintain viewership=
+. But acknowledging uncertainty doesn't mean abandoning discipline or analy=
+tical rigour. Rather, it means applying that rigour to understanding the ra=
+nge of possible outcomes rather than trying to predict a single result.</p>
+									 <p style=3D"font-family: 'Georgia',serif;font-size: 16px;font-wei=
+ght: 400;line-height: 140%;text-align: left;color: #444;margin: 0 0 10px;">=
+Like Professor Shankar's students spreading their "ignorance" of quantum me=
+chanics, perhaps investors would benefit from spreading a healthy scepticis=
+m about market predictions. This doesn't mean rejecting all expert analysis=
+, but consuming it appropriately and contextually.</p>
+									 <p style=3D"font-family: 'Georgia',serif;font-size: 16px;font-wei=
+ght: 400;line-height: 140%;text-align: left;color: #444;margin: 0;">So the =
+next time someone confidently explains why markets will behave in a particu=
+lar way, remember the quantum physicist's wisdom. Markets, like quantum par=
+ticles, don't always follow intuitive patterns. The wisest approach might b=
+e building resilient financial plans, acknowledging this fundamental truth =
+rather than pretending we can consistently predict the unpredictable. If br=
+illiant physicists can admit the limits of their understanding, investors s=
+hould consider doing the same.</p>
+									</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <hr
+                                            style=3D"border:0; border-top: =
+1px solid #BFBFBF; width: 100%; margin: 20px auto">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+										<p style=3D"font-family: 'Georgia',serif;font-size: 16px;font-wei=
+ght: 400;line-height: 140%;text-align: left;color: #444;margin: 0 0 10px;">=
+Thank you for being a Value Research Insider. I hope you found this note us=
+eful and interesting. What did you think of today=E2=80=99s note? <a href=
+=3D"mailto:editor@valueresearch.in" target=3D"_blank" style=3D"color:#1C509=
+D;text-decoration: underline;"><span style=3D"font-weight: bold;">Let me kn=
+ow</span></a>.</p>
+										<p style=3D"font-family: 'Georgia',serif;font-size: 16px;font-wei=
+ght: 400;line-height: 140%;text-align: left;color: #444;margin: 0 0 10px;">=
+And if you=E2=80=99d like some extra help with building your investments, d=
+o take a look at <a href=3D"https://m2.valueresearchonline.com/link/95443d6=
+3-5090-4435-9a69-45361c64a483/fdc3158b-c89b-461c-b8af-42a5d5cf38e7/e3f3ebcf=
+-f2aa-45d0-985e-7680df74578b">Fund Advisor</a> and <a href=3D"https://m2.va=
+lueresearchonline.com/link/cde32834-ade8-482d-be3a-21f7f603fbaf/fdc3158b-c8=
+9b-461c-b8af-42a5d5cf38e7/e3f3ebcf-f2aa-45d0-985e-7680df74578b">Stock Advis=
+or</a> Many readers find these to be valuable companions on their investing=
+ journey.</p>
+										<p style=3D"font-family: 'Georgia',serif;font-size: 16px;font-wei=
+ght: 400;line-height: 140%;text-align: left;color: #444;margin: 0 0 10px;">=
+If you know anyone who would enjoy it, please forward this email. They can =
+sign up for free <a href=3D"https://www.valueresearchonline.com/myaccount#n=
+ewsletter" target=3D"_blank" style=3D"color:#1C509D;text-decoration: underl=
+ine;">here</a>.</p>
+                                        <p style=3D"font-family: 'Georgia',=
+serif;font-size: 16px;font-weight: 400;line-height: 140%;text-align: left;c=
+olor: #444;margin: 0;">You can also subscribe to the Hindi version of this =
+note <a href=3D"https://hindi.valueresearchonline.com/myaccount#newsletter"=
+ target=3D"_blank" style=3D"color:#1C509D;text-decoration: underline;">here=
+</a>.</p>
+                                       =20
+                                    </td>
+                                </tr>
+                           =20
+                            </tbody>
+                        </table>
+                        <table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"padding:0;width: 100%!important;">
+                            <tbody>
+                           =20
+                            </tbody>
+                        </table>
+                        <table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0"
+                               style=3D"padding:15px 20px;margin-top:20px;w=
+idth: 100%!important;background: #E8EEF5;">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <h3 class=3D"fs-12"
+                                            style=3D"font-family: 'Georgia'=
+,serif;font-size: 14px;font-weight: 400;line-height: 16.8px;color:#000;marg=
+in:0;">
+                                        Was this email forwarded to you?</h=
+3>
+                                </td>
+                                <td>
+                                    <h3 class=3D"fs-12"
+                                            style=3D"font-family: 'Georgia'=
+,serif;font-size: 14px;font-weight: 700;line-height: 16.8px;color:#000;marg=
+in:0;text-align:right;">
+                                        <a href=3D"https://www.valueresearc=
+honline.com/myaccount#newsletter" style=3D"color: #4169E1;text-decoration: =
+underline;">Sign up here</a></h3>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0"
+                            style=3D"background: #212427;padding: 18.46px 2=
+0px;margin:0;width: 100%">
+                            <tr>
+                                <td style=3D"line-height: 0">
+                                    <a href=3D"https://www.valueresearchonl=
+ine.com/?utm_source=3D2024-07-02-editors&utm_medium=3Demail&utm_campaign=3D=
+editors" style=3D"color: #fff;color-scheme: light only;">
+                                        <img src=3D"https://www.valueresear=
+chonline.com/content-assets/images/vr-white-logo__w264__h66__.png"
+                                            alt=3D"vro-logo" height=3D"22" =
+width=3D"86"/>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style=3D"padding-top: 13.85px" colspan=
+=3D"2">
+                                    <p style=3D"padding:0;text-align: left;=
+font-family: 'Arial',sans-serif;font-style: normal;font-weight: normal;font=
+-size: 12px;letter-spacing:0.18px;line-height: 140%;margin: 0 auto;color:#f=
+ff;">
+										Copyright &copy; Value Research India Private Limited 2024. All r=
+ights reserved.<br>
+										C-103, Sector 65
+										Noida, 201301.
+                                    </p>
+                                    <p style=3D"padding:0;text-align: left;=
+font-family: 'Arial',sans-serif;font-style: normal;font-weight: normal;font=
+-size: 12px;letter-spacing:0.18px;line-height: 140%;margin: 0 auto;color: #=
+fff;">
+                                        This notification mail has been sen=
+t to you at pawarpratika304@gmail.com=20
+                                        because you are a member of Value R=
+esearch Online.</p>
+                                </td>
+                            </tr>
+                            <tr class=3D"mobile-view">
+                                <td style=3D"line-height: 0">
+                                    <div>
+                                        <a href=3D"https://www.valueresearc=
+honline.com/myaccount/?utm_source=3D2024-07-02-editors&utm_medium=3Demail&u=
+tm_campaign=3Deditors#newsletter"
+                                            style=3D"color: #fff;font-famil=
+y:'Arial',sans-serif;font-size: 12px;line-height: 14.4px; text-decoration: =
+underline;vertical-align: middle;white-space: nowrap;margin-top: 18px;displ=
+ay: inline-block;">Manage
+                                            Newsletters</a>
+                                        <a href=3D"https://www.valueresearc=
+honline.com/newsletter-subscription?a=3Dunsubscribe&e=3Dpawarpratika304%40g=
+mail.com&n=3Deditors&t=3D72ece2d413366037f210c2c8597dee1f1378cbce"
+                                            style=3D"padding:0 10px;color: =
+#fff;font-family: 'Arial',sans-serif; font-size: 12px;line-height: 14.4px; =
+text-decoration: underline;vertical-align: middle;white-space: nowrap;margi=
+n-top: 18px;display: inline-block;">Unsubscribe</a>
+                                        <a href=3D"https://www.valueresearc=
+honline.com/privacy-policy/?utm_source=3D2024-07-02-editors&utm_medium=3Dem=
+ail&utm_campaign=3Deditors"
+                                            style=3D"color: #fff;font-famil=
+y:'Arial',sans-serif; font-size: 12px;line-height: 14.4px; text-decoration:=
+ underline;vertical-align: middle;white-space: nowrap;margin-top: 18px;disp=
+lay: inline-block;">Privacy
+                                            Policy</a>
+                                    </div>
+                                </td>
+                                <td style=3D"line-height: 0;">
+                                    <div class=3D"text-left" style=3D"paddi=
+ng-top: 18px;text-align: right">
+                                        <span style=3D"padding-top: 0; padd=
+ing-right: 15px; padding-bottom:0; font-family: 'Arial',sans-serif;font-sty=
+le: normal;font-weight: normal;font-size: 12px;line-height: 14.4px;margin-t=
+op: 0;margin-bottom: 0;color: #fff;vertical-align: middle;">
+                                        Follow us:</span>
+                                        <a href=3D"https://twitter.com/Valu=
+eResearch" target=3D"_blank"
+                                           style=3D"color: #fff;text-decora=
+tion: none;vertical-align: middle;">
+                                            <img src=3D"https://www.valuere=
+searchonline.com/content-assets/images/twitter-white-icon__w30__.png" style=
+=3D"color-scheme: light only;"
+                                                 alt=3D"twitter-icon" width=
+=3D"15" height=3D"15">
+
+                                        </a>
+                                        <a href=3D"https://www.facebook.com=
+/ValueResearch/"
+                                           style=3D" padding-left:15px;colo=
+r: #fff;text-decoration: none;vertical-align: middle;"
+                                           target=3D"_blank">
+                                            <img src=3D"https://www.valuere=
+searchonline.com/content-assets/images/facebook-white-icon__w30__.png" styl=
+e=3D"color-scheme: light only;"
+                                                 alt=3D"facebook-icon" widt=
+h=3D"15" height=3D"15">
+                                        </a>
+                                        <a href=3D"https://www.youtube.com/=
+channel/UCcYn9RpMAuYtO_uzGgtZJUQ"
+                                           style=3D"padding-left:15px;color=
+: #fff;text-decoration: none;vertical-align: middle;"
+                                           target=3D"_blank">
+                                            <img src=3D"https://www.valuere=
+searchonline.com/content-assets/images/youtube-white-icon__w30__.png" style=
+=3D"color-scheme: light only;"
+                                                 alt=3D"youtube-icon" width=
+=3D"21" height=3D"21">
+                                        </a>
+                                        <a href=3D"https://www.linkedin.com=
+/company/value-research"
+                                           style=3D"padding-left:15px;color=
+: #fff;text-decoration: none;vertical-align: middle;"
+                                           target=3D"_blank">
+                                            <img src=3D"https://www.valuere=
+searchonline.com/content-assets/images/linkedin-white-icon__w30__.png" styl=
+e=3D"color-scheme: light only;"
+                                                 alt=3D"linkedIn-icon" widt=
+h=3D"15" height=3D"15">
+                                        </a>
+                                        <a href=3D"https://www.instagram.co=
+m/valueresearch/"
+                                           style=3D"padding-left:15px;color=
+: #fff;text-decoration: none;vertical-align: middle;;"
+                                           target=3D"_blank">
+                                            <img src=3D"https://www.valuere=
+searchonline.com/content-assets/images/instagram-white-icon__w30__.png" sty=
+le=3D"color-scheme: light only;"
+                                                 alt=3D"instagram-icon" wid=
+th=3D"15" height=3D"15">
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </center>
+<script data-cfasync=3D"false" src=3D"/cdn-cgi/scripts/5c5dd728/cloudflare-=
+static/email-decode.min.js"></script></body>
+
+</html>
+<img src=3D"https://m2.valueresearchonline.com/campaign/fdc3158b-c89b-461c-=
+b8af-42a5d5cf38e7/e3f3ebcf-f2aa-45d0-985e-7680df74578b/px.png" alt=3D"" />
